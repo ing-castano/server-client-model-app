@@ -2,83 +2,107 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Proyecto PFO2 - Gestión de Tareas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PFO 2 - Sistema de Gestión de Tareas</title>
   <style>
     body {
       font-family: Arial, sans-serif;
+      margin: 2rem;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    header {
+      border-bottom: 2px solid #007bff;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+    }
+    h1 {
+      color: #007bff;
+      margin-bottom: 0;
+    }
+    main {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
       max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
-      line-height: 1.6;
+      margin: auto;
     }
-    h1, h2 {
-      color: #2c3e50;
+    section {
+      margin-bottom: 1.5rem;
     }
-    code {
-      background-color: #f4f4f4;
-      padding: 2px 6px;
-      border-radius: 4px;
+    h2 {
+      color: #0056b3;
+      margin-bottom: 0.5rem;
     }
-    pre {
-      background: #f4f4f4;
-      padding: 10px;
-      overflow-x: auto;
+    ul {
+      margin-top: 0;
+      padding-left: 1.2rem;
+    }
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      color: #666;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
-  <h1>Proyecto PFO2 - Sistema de Gestión de Tareas</h1>
+  <header>
+    <h1>Práctica Formativa Obligatoria 2</h1>
+    <p><strong>Sistema de Gestión de Tareas con API y Base de Datos (PFO 2)</strong></p>
+  </header>
 
-  <p>
-    Este proyecto consiste en una API desarrollada con Flask y una interfaz cliente en consola para gestionar usuarios y tareas. La base de datos utilizada es SQLite.
-  </p>
+  <main>
+    <section>
+      <h2>Objetivos</h2>
+      <ul>
+        <li>Implementar una API REST con endpoints funcionales.</li>
+        <li>Utilizar autenticación básica con protección de contraseñas.</li>
+        <li>Gestionar datos persistentes con SQLite.</li>
+        <li>Construir un cliente en consola que interactúe con la API.</li>
+      </ul>
+    </section>
 
-  <h2>Requisitos</h2>
-  <ul>
-    <li>Python 3.10 o superior</li>
-    <li>Pip (instalador de paquetes de Python)</li>
-    <li>Sistema operativo Windows, Linux o macOS</li>
-  </ul>
+    <section>
+      <h2>Servidor (API Flask)</h2>
+      <p>El servidor ofrece los siguientes endpoints:</p>
+      <ul>
+        <li><strong>POST /registro:</strong> Registra usuarios con contraseñas hasheadas.</li>
+        <li><strong>POST /login:</strong> Permite iniciar sesión verificando credenciales.</li>
+        <li><strong>GET /tareas:</strong> Muestra esta página de bienvenida.</li>
+      </ul>
+      <p>Los datos se almacenan de forma segura usando SQLite y WerkZeug para el hash de contraseñas.</p>
+    </section>
 
-  <h2>Instalación</h2>
-  <pre><code>git clone https://github.com/ing-castano/server-client-model-app.git
-cd server-client-model-app
-python -m venv venv
-# Activar entorno:
-# En Windows:
-.\venv\Scripts\activate
-# En Linux/macOS:
-source venv/bin/activate
-pip install -r requirements.txt
-</code></pre>
+    <section>
+      <h2>Cliente en Consola</h2>
+      <p>Desde el cliente en consola podrás registrar usuarios, iniciar sesión y consultar tus tareas.</p>
+    </section>
 
-  <h2>Inicializar la base de datos</h2>
-  <p>Ejecutar el servidor una vez para crear la base:</p>
-  <pre><code>python servidor.py</code></pre>
+    <section>
+      <h2>Por qué hashear contraseñas?</h2>
+      <p>Hashear contraseñas protege la información sensible. Nunca se almacenan en texto plano para evitar que si alguien accede a la base pueda leerlas fácilmente. Usamos Werkzeug, que incorpora un “salt” aleatorio para aumentar la seguridad y prevenir ataques por fuerza bruta.</p>
+    </section>
 
-  <h2>Ejecutar el cliente</h2>
-  <pre><code>python cliente.py</code></pre>
+    <section>
+      <h2>Ventajas de SQLite en este proyecto</h2>
+      <ul>
+        <li>No requiere servidor externo, todo está en un archivo local.</li>
+        <li>Fácil de usar y portátil.</li>
+        <li>Ideal para proyectos pequeños y educativos.</li>
+        <li>Integración directa con Python sin configuraciones complejas.</li>
+      </ul>
+    </section>
 
-  <h2>Comandos útiles de SQLite</h2>
-  <pre><code>sqlite3 tareas_pfo2.db
-.tables
-.schema nombre_de_tabla
-SELECT * FROM nombre_de_tabla;
-.exit
-</code></pre>
+    <section>
+      <h2>Pruebas y Ejecución</h2>
+      <p>Ejecuta el servidor con <code>python servidor.py</code> y luego corre el cliente con <code>python cliente.py</code>. Interactúa con el menú para registrar usuarios, iniciar sesión y ver tareas.</p>
+    </section>
+  </main>
 
-  <h2>¿Por qué hashear contraseñas?</h2>
-  <p>
-    Hashear contraseñas protege a los usuarios en caso de que la base de datos sea comprometida. Usamos la función <code>generate_password_hash</code> de <code>werkzeug.security</code>, que aplica un algoritmo seguro con salt integrado, dificultando ataques por diccionario o fuerza bruta.
-  </p>
-
-  <h2>Ventajas de usar SQLite</h2>
-  <ul>
-    <li>No requiere instalar ni configurar un servidor externo.</li>
-    <li>Almacena todos los datos en un único archivo portátil.</li>
-    <li>Ideal para proyectos chicos y educativos.</li>
-    <li>Se puede consultar fácilmente desde la terminal o Python.</li>
-  </ul>
+  <footer>
+    <p>Proyecto desarrollado para la Tecnicatura en Desarrollo de Software - PFO 2</p>
+  </footer>
 </body>
 </html>
