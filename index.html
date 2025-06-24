@@ -2,175 +2,90 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Proyecto PFO2 - Gestión de Tareas</title>
   <style>
     body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: linear-gradient(120deg, #e0e7ff 0%, #f9fafb 100%);
-      color: #22223b;
-      margin: 0;
-      padding: 0;
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.6;
     }
-    header {
-      background: #3a86ff;
-      color: #fff;
-      padding: 2rem 0 1.2rem 0;
-      text-align: center;
-      box-shadow: 0 4px 16px rgba(58, 134, 255, 0.06);
-    }
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.3rem;
-      letter-spacing: 1px;
-    }
-    header p {
-      font-size: 1.25rem;
-      margin: 0;
-      font-weight: 500;
-      letter-spacing: 0.5px;
-    }
-    main {
-      background: #fff;
-      max-width: 850px;
-      margin: -2rem auto 2.5rem auto;
-      border-radius: 14px;
-      box-shadow: 0 6px 32px rgba(58, 134, 255, 0.08);
-      padding: 2.5rem 2rem 2rem 2rem;
-      position: relative;
-      z-index: 10;
-    }
-    section {
-      margin-bottom: 2rem;
-    }
-    h2 {
-      color: #3a86ff;
-      font-weight: 700;
-      margin-bottom: 0.7rem;
-    }
-    ul {
-      margin-top: 0;
-      padding-left: 1.3rem;
-    }
-    li {
-      margin-bottom: 0.5rem;
+    h1, h2 {
+      color: #2c3e50;
     }
     code {
-      background: #e7ecf7;
-      color: #22223b;
+      background-color: #f4f4f4;
       padding: 2px 6px;
-      border-radius: 5px;
-      font-size: 1em;
+      border-radius: 4px;
     }
     pre {
-      background: #e7ecf7;
-      border-radius: 6px;
-      padding: 1rem;
+      background: #f4f4f4;
+      padding: 10px;
       overflow-x: auto;
-      margin: 0.7rem 0 1rem 0;
-    }
-    .tips {
-      background: #f1f8e9;
-      border-left: 5px solid #3a86ff;
-      padding: 1rem 1.2rem;
-      border-radius: 8px;
-      margin-bottom: 1.5rem;
-      color: #31572c;
-    }
-    footer {
-      text-align: center;
-      margin-top: 2rem;
-      color: #666;
-      font-size: 1rem;
-      padding-bottom: 1.2rem;
-    }
-    @media (max-width: 600px) {
-      main {
-        padding: 1.2rem 0.5rem;
-      }
-      header h1 {
-        font-size: 1.5rem;
-      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>PFO2 - Sistema de Gestión de Tareas</h1>
-    <p>API RESTful + Cliente en Consola · Seguridad · SQLite · Python</p>
-  </header>
-  <main>
-    <section>
-      <h2>Descripción General</h2>
-      <p>
-        Este proyecto implementa una arquitectura cliente-servidor profesional, enfocada en la gestión segura de usuarios y tareas. La API está desarrollada en Flask siguiendo buenas prácticas REST y el cliente en consola permite interactuar fácilmente desde terminal. Ideal para afianzar conceptos de autenticación, persistencia y separación de responsabilidades.
-      </p>
-    </section>
-    <section>
-      <h2>Características Técnicas</h2>
-      <ul>
-        <li>API RESTful con endpoints bien definidos (<code>/registro</code>, <code>/login</code>, <code>/tareas</code>).</li>
-        <li>Autenticación robusta y hash de contraseñas con <b>Werkzeug</b>.</li>
-        <li>Persistencia eficiente y portable con <b>SQLite</b>.</li>
-        <li>Cliente en consola multiplataforma para pruebas y automatización.</li>
-        <li>Código modular y fácilmente extensible.</li>
-      </ul>
-    </section>
-    <section>
-      <h2>Instalación y Puesta en Marcha</h2>
-      <ol>
-        <li>Clona el repositorio y crea un entorno virtual:
-          <pre><code>git clone https://github.com/ing-castano/server-client-model-app.git
+  <h1>Proyecto PFO2 - Sistema de Gestión de Tareas</h1>
+  <h2>GitHub Repo</h2>
+  <a href="https://github.com/ing-castano/server-client-model-app">https://github.com/ing-castano/server-client-model-app</a>
+  <p>
+    Este proyecto consiste en una API desarrollada con Flask y una interfaz cliente en consola para gestionar usuarios y tareas. La base de datos utilizada es SQLite.
+  </p>
+
+  <h2>Requisitos</h2>
+  <ul>
+    <li>Python 3.10 o superior</li>
+    <li>Pip (instalador de paquetes de Python)</li>
+    <li>Sistema operativo Windows, Linux o macOS</li>
+  </ul>
+
+  <h2>Instalación</h2>
+  <pre><code>git clone https://github.com/ing-castano/server-client-model-app.git
 cd server-client-model-app
 python -m venv venv
-# Windows: .\venv\Scripts\activate
-# Linux/macOS: source venv/bin/activate
-pip install -r requirements.txt</code></pre>
-        </li>
-        <li>Inicializa la base de datos ejecutando una vez el servidor:
-          <pre><code>python servidor.py</code></pre>
-        </li>
-        <li>Inicia el cliente y explora las funcionalidades:
-          <pre><code>python cliente.py</code></pre>
-        </li>
-      </ol>
-    </section>
-    <section>
-      <h2>Buenas Prácticas y Seguridad</h2>
-      <div class="tips">
-        <b>¿Por qué hashear contraseñas?</b><br>
-        Nunca almacenes contraseñas en texto plano. El uso de funciones como <code>generate_password_hash</code> de <code>werkzeug.security</code> garantiza seguridad ante filtraciones, usando algoritmos modernos como PBKDF2.
-      </div>
-      <div class="tips">
-        <b>SQLite en proyectos académicos y prototipos:</b><br>
-        <ul>
-          <li>No requiere configuración de servidor externo.</li>
-          <li>Portabilidad: solo un archivo, fácil de respaldar y migrar.</li>
-          <li>Compatible con SQL estándar y consultas complejas.</li>
-          <li>Ideal para proyectos educativos y pruebas rápidas.</li>
-        </ul>
-      </div>
-    </section>
-    <section>
-      <h2>Comandos Útiles</h2>
-      <pre><code>sqlite3 tareas_pfo2.db
+# Activar entorno:
+# En Windows:
+.\venv\Scripts\activate
+# En Linux/macOS:
+source venv/bin/activate
+pip install -r requirements.txt
+</code></pre>
+
+  <h2>Inicializar la base de datos</h2>
+  <p>Ejecutar el servidor una vez para crear la base:</p>
+  <pre><code>python servidor.py</code></pre>
+
+  <h2>Ejecutar el cliente</h2>
+  <pre><code>python cliente.py</code></pre>
+
+  <h2>Comandos útiles de SQLite</h2>
+  <pre><code>sqlite3 tareas_pfo2.db
 .tables
 .schema nombre_de_tabla
 SELECT * FROM nombre_de_tabla;
-.exit</code></pre>
-    </section>
-    <section>
-      <h2>Recomendaciones para Avanzar</h2>
-      <ul>
-        <li>Implementa validaciones adicionales de entrada/salida.</li>
-        <li>Agrega soporte para JWT o autenticación por tokens.</li>
-        <li>Integra tests unitarios y documentación automática (por ejemplo, Swagger).</li>
-        <li>Experimenta con despliegue en servicios cloud gratuitos.</li>
-      </ul>
-    </section>
-  </main>
-  <footer>
-    <p>Desarrollado por estudiantes de Tecnicatura en Desarrollo de Software · PFO2 · 2025</p>
-  </footer>
+.exit
+</code></pre>
+
+  <h2>¿Por qué hashear contraseñas?</h2>
+  <p>
+    Hashear contraseñas es fundamental para proteger la información sensible de los usuarios. Si se almacenaran contraseñas en texto plano, un atacante que acceda a la base de datos podría verlas directamente. En cambio, al aplicar un hash (función unidireccional), incluso si alguien roba la base, no podrá recuperar las contraseñas reales fácilmente.
+  </p>
+  <p>
+    Además, al usar un algoritmo como bcrypt, sha256 o similar (idealmente con un salt aleatorio), se evita que dos contraseñas iguales tengan el mismo resultado y se dificulta el uso de ataques por diccionario o fuerza bruta.
+  <p>
+    En nuestro proyecto utilizamos la librería werkzeug.security, incluida con Flask, que proporciona funciones como generate_password_hash y check_password_hash. Esta opción es simple, segura y práctica para proyectos educativos, ya que abstrae los detalles criptográficos y permite aplicar buenas prácticas con pocas líneas de código. Esta librería incorpora un “salt” aleatorio que “condimenta” el algoritmo de encriptación de la contraseña, resultando en credenciales más difíciles de vulnerar mediante métodos de fuerza bruta.
+  </p>
+
+  <h2>Ventajas de usar SQLite</h2>
+  <ul>
+    <li>No requiere servidor: la base se almacena en un solo archivo .db.</li>
+    <li>Fácil de usar: se puede consultar con comandos simples desde la terminal o desde Python.</li>
+    <li>Portabilidad: podés mover el archivo de base de datos fácilmente a otra computadora.</li>
+    <li>Buen rendimiento: para pocas conexiones simultáneas y volumen de datos moderado, funciona muy bien.</li>
+    <li>Integración directa con Python: el módulo sqlite3 viene incluido en la biblioteca estándar.</li>
+  </ul>
 </body>
 </html>
